@@ -1,3 +1,5 @@
+import Header from "./components/Header.js";
+
 class App {
   constructor($body) {
     this.$body = $body;
