@@ -1,0 +1,125 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+#page_header,
+#page_footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 2em;
+}
+
+#page_content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content_title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#shoes_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shoes {
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: calc((100% / 5) - 20px);
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.shoes-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.shoes-name {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.shoes-price {
+  color: #333;
+  font-size: 1em;
+}
+
+.footer-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+  margin-right: 10px;
+
+}
+
+
+#input-search {
+  padding: 10px;
+  width: 200px;
+}
+
+.btn-search {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #343a40;
+    font-size: 18px;
+  }
+
+  .nav-link:hover {
+    color: #007bff;
+  }

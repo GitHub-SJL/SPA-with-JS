@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <link rel="stylesheet" href="./style.css" />
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>No SPA</title>
+  </head>
+
+  <body>
+    <header id="page_header">
+      <h1 class="header-title">옷 판매</h1>
+      <nav>
+        <a href="example.html" class="nav-link" data-link>신발</a>
+        <a href="example-routing.html" class="nav-link" data-link>옷</a>
+      </nav>
+    </header>
+    <main id="page_content">
+      <div class="content_title"><h1>SPA 옷</h1></div>
+      <div id="shoes_container">
+        <div class="shoes">
+          <img class="shoes-img" src="./img/clothes/clothes1.webp" />
+          <h5 class="shoes-name">옷1</h5>
+          <p class="shoes-price">가격: 1원</p>
+        </div>
+        <div class="shoes">
+          <img class="shoes-img" src="./img/clothes/clothes2.webp" />
+          <h5 class="shoes-name">옷2</h5>
+          <p class="shoes-price">가격: 2원</p>
+        </div>
+        <div class="shoes">
+          <img class="shoes-img" src="./img/clothes/clothes3.webp" />
+          <h5 class="shoes-name">옷3</h5>
+          <p class="shoes-price">가격: 3원</p>
+        </div>
+        <div class="shoes">
+          <img class="shoes-img" src="./img/clothes/clothes4.webp" />
+          <h5 class="shoes-name">옷4</h5>
+          <p class="shoes-price">가격: 4원</p>
+        </div>
+        <div class="shoes">
+          <img class="shoes-img" src="./img/clothes/clothes5.webp" />
+          <h5 class="shoes-name">옷5</h5>
+          <p class="shoes-price">가격: 5원</p>
+        </div>
+      </div>
+    </main>
+    <footer id="page_footer">
+      <div class="footer-btn">
+        <button class="btn btn-add">상품 더 보기</button>
+        <button class="btn btn-sort-price">가격순 정렬</button>
+        <button class="btn btn-sort-name">다나가순 정렬</button>
+        <div class="search">
+          <input id="input-search" placeholder="가격 검색" /><button
+            class="btn-search"
+          >
+            검색
+          </button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
