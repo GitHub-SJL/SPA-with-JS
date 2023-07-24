@@ -80,12 +80,10 @@ body {
 }
 
 .search {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
   margin-right: 10px;
-
 }
-
 
 #input-search {
   padding: 10px;
@@ -103,23 +101,26 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f8f9fa;
-  }
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
 
-  .nav-link {
-    text-decoration: none;
-    color: #343a40;
-    font-size: 18px;
-  }
+.nav-link {
+  text-decoration: none;
+  color: #343a40;
+  font-size: 18px;
+}
+.nav-link.active {
+  color: #ff6347;
+  font-weight: bold;
+}
 
-  .nav-link:hover {
-    color: #007bff;
-  }
+.nav-link:hover {
+  color: #007bff;
+}
