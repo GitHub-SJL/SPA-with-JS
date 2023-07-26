@@ -1,13 +1,13 @@
 import ContentTitle from "../components/ContentTitle.js";
 
-class ProductPage {
+class ShoesPage {
   constructor($main) {
     this.$main = $main;
   }
   render() {
-    const title = new ContentTitle(this.$main, "테스트", "content_title");
+    const title = new ContentTitle(this.$main, "신발페이지 테스트", "content_title");
     title.render();
   }
 }
 
-export default ProductPage;
+export default ShoesPage;
