@@ -1,0 +1,52 @@
+[
+  {
+    "name": "옷1",
+    "price": 1,
+    "img": "https://i.ibb.co/q7gdDB9/clothes1.webp"
+  },
+  {
+    "name": "옷2",
+    "price": 2,
+    "img": "https://i.ibb.co/sJSgBNY/clothes2.webp"
+  },
+  {
+    "name": "옷3",
+    "price": 3,
+    "img": "https://i.ibb.co/HgnPxmj/clothes3.webp"
+  },
+  {
+    "name": "옷4",
+    "price": 4,
+    "img": "https://i.ibb.co/j5XpKvC/clothes4.webp"
+  },
+  {
+    "name": "옷5",
+    "price": 5,
+    "img": "https://i.ibb.co/CHgb0rz/clothes5.webp"
+  },
+  {
+    "name": "옷6",
+    "price": 6,
+    "img": "https://i.ibb.co/gTvBkkd/clothes6.webp"
+  },
+  {
+    "name": "옷7",
+    "price": 7,
+    "img": "https://i.ibb.co/sRg2mbb/clothes7.webp"
+  },
+  {
+    "name": "옷8",
+    "price": 8,
+    "img": "https://i.ibb.co/TWpYG6t/clothes8.webp"
+  },
+  {
+    "name": "옷9",
+    "price": 9,
+    "img": "https://i.ibb.co/Scc3ZVJ/clothes9.webp"
+  },
+  {
+    "name": "옷10",
+    "price": 10,
+    "img": "https://i.ibb.co/0MCyCc4/clothes10.webp"
+  }
+]
