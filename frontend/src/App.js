@@ -7,7 +7,10 @@ class App {
     this.render();
   }
   render() {
-    
+    document.addEventListener("urlchange", (e) => {
+      let pathname = e.detail.href;
+      console.log(pathname);
+    });
 
     const header = new Header(this.$body);
     header.render();
@@ -17,7 +20,6 @@ class App {
 
     const productPage = new ProductPage(main);
     productPage.render();
-
     this.$body.appendChild(main);
   }
 }

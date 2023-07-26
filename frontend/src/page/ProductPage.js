@@ -5,10 +5,7 @@ class ProductPage {
     this.$main = $main;
   }
   render() {
-    const currentPath = window.location.pathname;
-
-    console.log(currentPath);
-    const title = new ContentTitle(this.$main, "테스트");
+    const title = new ContentTitle(this.$main, "테스트", "content_title");
     title.render();
   }
 }

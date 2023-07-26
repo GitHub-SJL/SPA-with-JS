@@ -1,81 +1,53 @@
+import ContentTitle from "./ContentTitle.js";
+
 class Header {
   constructor($body) {
     this.$body = $body;
-    this.h1 = document.createElement("h1");
-    this.shoesLink = document.createElement("div");
-    this.clothLink = document.createElement("div");
   }
-
-  updateProduct(path) {
-    if (path === "/") {
-      this.h1.textContent = "신발 판매";
-      this.shoesLink.classList.add("active");
-      this.clothLink.classList.remove("active");
-    } else if (path === "/clothes/") {
-      this.h1.textContent = "옷 판매";
-      this.clothLink.classList.add("active");
-      this.shoesLink.classList.remove("active");
-    }
+  createLinkDiv(divClass, text) {
+    const div = document.createElement("div");
+    div.setAttribute("class", divClass);
+    div.appendChild(document.createTextNode(text));
+    return div;
   }
 
   render() {
-    // header 요소 생성
+    // DOM 노드 생성
     const header = document.createElement("header");
-    header.id = "page_header";
-
-    // 현재 페이지 주소 감지
-    const currentPath = window.location.pathname;
-
-    console.log(currentPath);
-
-    // h1 요소 생성
-    this.h1.classList.add("header-title");
-    this.updateProduct(currentPath);
-    header.appendChild(this.h1);
-
-    // nav 요소 생성
+    header.setAttribute("id", "page_header");
+    const title = new ContentTitle(this.$body, "SPA 쇼핑몰", "header-title");
+    const headerTitle = title.render();
     const nav = document.createElement("nav");
+    const shoesLink = this.createLinkDiv("nav-link", "신발");
+    const clothesLink = this.createLinkDiv("nav-link", "옷");
 
-    // shoesLink 속성 설정
-    this.shoesLink.classList.add("nav-link");
-    this.shoesLink.dataset.link = "";
-    this.shoesLink.textContent = "신발";
-    this.shoesLink.style.cursor = "pointer";
-
-    // shoesLink 클릭 이벤트
-    this.shoesLink.addEventListener("click", (e) => {
+    // link 클릭시 url 변경
+    shoesLink.addEventListener("click", () => {
       window.history.pushState("", "", "/");
-      this.updateProduct("/");
+      shoesLink.classList.add("active");
+      clothesLink.classList.remove("active");
       const urlChange = new CustomEvent("urlchange", {
         detail: { href: "/" },
       });
       document.dispatchEvent(urlChange);
     });
 
-    nav.appendChild(this.shoesLink);
-
-    // clothLink 속성 생성
-    this.clothLink.classList.add("nav-link");
-    this.clothLink.dataset.link = "";
-    this.clothLink.textContent = "옷";
-    this.clothLink.style.cursor = "pointer";
-
-    // clothLink 클릭 이벤트
-    this.clothLink.addEventListener("click", (e) => {
+    clothesLink.addEventListener("click", () => {
       window.history.pushState("", "", "/clothes/");
-      this.updateProduct("/clothes/");
+      clothesLink.classList.add("active");
+      shoesLink.classList.remove("active");
       const urlChange = new CustomEvent("urlchange", {
         detail: { href: "/clothes/" },
       });
       document.dispatchEvent(urlChange);
     });
 
-    nav.appendChild(this.clothLink);
+    nav.appendChild(shoesLink);
+    nav.appendChild(clothesLink);
 
-    // nav 요소를 header 요소에 추가
+    // DOM 트리에 노드 연결
+    header.appendChild(headerTitle);
     header.appendChild(nav);
-
-    // header 요소를 body에 추가
     this.$body.appendChild(header);
   }
 }
