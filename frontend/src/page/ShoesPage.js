@@ -1,12 +1,20 @@
 import ContentTitle from "../components/ContentTitle.js";
+import ShoesView from "../view/ShoesView.js";
 
 class ShoesPage {
   constructor($main) {
     this.$main = $main;
   }
-  render() {
-    const title = new ContentTitle(this.$main, "신발페이지 테스트", "content_title");
+  async render() {
+    const pageDiv = document.createElement("div");
+    pageDiv.setAttribute("class", "product_page");
+    this.$main.appendChild(pageDiv);
+
+    const title = new ContentTitle(pageDiv, "SPA 신발", "content_title");
     title.render();
+
+    const shoesView = new ShoesView(pageDiv);
+    shoesView.render();
   }
 }
 

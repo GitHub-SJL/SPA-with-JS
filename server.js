@@ -18,6 +18,8 @@ app.use(
 
 app.use("/frontend", express.static(path.resolve(__dirname, "frontend")));
 
+app.use("/data", express.static(path.join(__dirname, "frontend","src","data")));
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server running...", `http://localhost:5000/`);
 });

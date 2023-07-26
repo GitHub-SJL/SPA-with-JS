@@ -1,0 +1,52 @@
+[
+  {
+    "name": "신발1",
+    "price": 1,
+    "img": "https://i.ibb.co/5r6DR1d/shoes1.webp"
+  },
+  {
+    "name": "신발2",
+    "price": 2,
+    "img": "https://i.ibb.co/XxKSszf/shoes2.webp"
+  },
+  {
+    "name": "신발3",
+    "price": 3,
+    "img": "https://i.ibb.co/Dp0BLzp/shoes3.webp"
+  },
+  {
+    "name": "신발4",
+    "price": 4,
+    "img": "https://i.ibb.co/tpJs1t9/shoes4.webp"
+  },
+  {
+    "name": "신발5",
+    "price": 5,
+    "img": "https://i.ibb.co/yY0wyST/shoes5.webp"
+  },
+  {
+    "name": "신발6",
+    "price": 6,
+    "img": "https://i.ibb.co/9bcGb0r/shoes6.webp"
+  },
+  {
+    "name": "신발7",
+    "price": 7,
+    "img": "https://i.ibb.co/n8TwGK1/shoes7.webp"
+  },
+  {
+    "name": "신발8",
+    "price": 8,
+    "img": "https://i.ibb.co/RB76DVN/shoes8.webp"
+  },
+  {
+    "name": "신발9",
+    "price": 9,
+    "img": "https://i.ibb.co/k0bzPK9/shoes9.webp"
+  },
+  {
+    "name": "신발10",
+    "price": 10,
+    "img": "https://i.ibb.co/C2X6XQR/shoes10.webp"
+  }
+]

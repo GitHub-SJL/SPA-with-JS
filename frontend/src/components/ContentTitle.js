@@ -1,6 +1,6 @@
 class ContentTitle {
-  constructor($upper, $title, $class) {
-    this.$upper = $upper;
+  constructor($page, $title, $class) {
+    this.$page = $page;
     this.$title = $title;
     this.$class = $class;
   }
@@ -14,7 +14,7 @@ class ContentTitle {
 
     div.appendChild(h1);
 
-    this.$upper.appendChild(div);
+    this.$page.appendChild(div);
 
     return div;
   }
