@@ -1,6 +1,7 @@
 import Header from "./components/Header.js";
 import ShoesPage from "./page/ShoesPage.js";
 import ClothesPage from "./page/ClothesPage.js";
+import Footer from "./components/Footer.js";
 class App {
   constructor($body) {
     this.$body = $body;
@@ -39,8 +40,10 @@ class App {
         default:
       }
     });
-
     this.$body.appendChild(main);
+
+    const footer = new Footer(this.$body);
+    footer.render();
   }
 }
 

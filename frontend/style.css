@@ -60,7 +60,7 @@ body {
   font-size: 1em;
 }
 
-.footer-btn {
+.footer-filter {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -70,13 +70,20 @@ body {
   background-color: #008cba;
   border: none;
   color: white;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-md {
+  padding: 15px 32px;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;
 }
 
 .search {
@@ -85,13 +92,23 @@ body {
   margin-right: 10px;
 }
 
-#input-search {
+.input {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
   padding: 10px;
-  width: 200px;
+  font-size: 16px;
+}
+
+.input-search {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
 .btn-search {
   background-color: #4caf50;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
   border: none;
   color: white;
   padding: 10px 24px;
