@@ -48,5 +48,55 @@
     "name": "흏에어 베이퍼맥스",
     "price": 249000,
     "img": "https://i.ibb.co/C2X6XQR/shoes10.webp"
+  },
+  {
+    "name": "가나이키 코르테즈",
+    "price": 119000,
+    "img": "https://i.ibb.co/5r6DR1d/shoes1.webp"
+  },
+  {
+    "name": "다나이키 인빈서블 3 SE",
+    "price": 209000,
+    "img": "https://i.ibb.co/XxKSszf/shoes2.webp"
+  },
+  {
+    "name": "마나이키 에어 포스 1 '07",
+    "price": 139000,
+    "img": "https://i.ibb.co/Dp0BLzp/shoes3.webp"
+  },
+  {
+    "name": "소나이키 베이퍼플라이 3",
+    "price": 299000,
+    "img": "https://i.ibb.co/tpJs1t9/shoes4.webp"
+  },
+  {
+    "name": "아나이키 덩크 하이 레트로",
+    "price": 149000,
+    "img": "https://i.ibb.co/yY0wyST/shoes5.webp"
+  },
+  {
+    "name": "키나이키 에어 포스 1 '02",
+    "price": 139000,
+    "img": "https://i.ibb.co/9bcGb0r/shoes6.webp"
+  },
+  {
+    "name": "넹나이키 캄",
+    "price": 59000,
+    "img": "https://i.ibb.co/n8TwGK1/shoes7.webp"
+  },
+  {
+    "name": "찡나이키 에어맥스 SC",
+    "price": 99000,
+    "img": "https://i.ibb.co/RB76DVN/shoes8.webp"
+  },
+  {
+    "name": "밍에어 조던 11 레트로 로우",
+    "price": 183200,
+    "img": "https://i.ibb.co/k0bzPK9/shoes9.webp"
+  },
+  {
+    "name": "흏에어 베이퍼맥스",
+    "price": 249000,
+    "img": "https://i.ibb.co/C2X6XQR/shoes10.webp"
   }
 ]

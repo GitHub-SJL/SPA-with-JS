@@ -10,20 +10,53 @@ import { fetchData } from "../components/fetchProduct.js";
 class ShoesView {
   constructor($page) {
     this.$page = $page;
+    this.currentData = [];
+    this.showedData = [];
+    this.showDataCount = 5;
+    this.loadShoesData();
 
     document.addEventListener("filterClicked", (event) => {
       const filterType = event.detail.filterType;
       this.sortShoesDataByPrice(filterType);
     });
+
+    document.addEventListener("loadMoreClicked", () => {
+      this.showMoreProducts();
+    });
+  }
+
+  async loadShoesData() {
+    this.currentData = await fetchData("shoesData");
+    this.showMoreProducts();
+  }
+
+  showMoreProducts() {
+    const additionalData = this.currentData.slice(
+      this.showedData.length,
+      this.showedData.length + this.showDataCount
+    );
+    const moreProductBtn = document.querySelector("#btn-more-product");
+
+    if (additionalData.length === 0) {
+      const endOfProductsMessage = document.createElement("p");
+      endOfProductsMessage.textContent = "더 이상 불러올 상품이 없습니다.";
+      this.$page.appendChild(endOfProductsMessage);
+      moreProductBtn.setAttribute("disabled", "");
+      return;
+    }
+    moreProductBtn.removeAttribute("disabled");
+    this.showedData = this.showedData.concat(additionalData);
+
+    this.$page.innerHTML = "";
+    this.render(this.showedData);
   }
 
   async sortShoesDataByPrice(filterType) {
-    const sortedShoesDates = await fetchData("shoesData");
     if (filterType === "price") {
-      sortedShoesDates.sort((a, b) => b[filterType] - a[filterType]);
+      this.showedData.sort((a, b) => b[filterType] - a[filterType]);
     }
     if (filterType === "name") {
-      sortedShoesDates.sort((a, b) => {
+      this.showedData.sort((a, b) => {
         a = a[filterType].toLowerCase();
         b = b[filterType].toLowerCase();
         if (a > b) {
@@ -39,30 +72,24 @@ class ShoesView {
 
     this.$page.innerHTML = "";
 
-    this.render(sortedShoesDates);
+    this.render(this.showedData);
   }
 
-  async render(sortedShoesDates) {
-    const shoesContainer = document.createElement("div");
-    shoesContainer.setAttribute("id", "product_container");
+  async render(productsData) {
+    const productsContainer = document.createElement("div");
+    productsContainer.setAttribute("id", "product_container");
 
-    let shoesDates = [];
-    if (sortedShoesDates) {
-      shoesDates = [...sortedShoesDates];
-    } else {
-      shoesDates = await fetchData("shoesData");
-    }
-    shoesDates.map((shoesData, idx) => {
-      const img = productImg(shoesData.img);
-      const h5 = productH5(shoesData.name);
-      const p = productP(shoesData.price);
+    productsData?.map((product, idx) => {
+      const img = productImg(product.img);
+      const h5 = productH5(product.name);
+      const p = productP(product.price);
 
       const div = productDiv(idx + 1, img, h5, p);
 
-      shoesContainer.appendChild(div);
+      productsContainer.appendChild(div);
     });
 
-    this.$page.appendChild(shoesContainer);
+    this.$page.appendChild(productsContainer);
   }
 }
 

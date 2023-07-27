@@ -10,8 +10,15 @@ class Footer {
 
     const filterDiv = document.createElement("div");
     filterDiv.setAttribute("class", "footer-filter");
-    
-    filterDiv.appendChild(filterBtn("btn-md", "상품 더보기"));
+
+    const moreProductBtn = filterBtn("btn-md", "상품 더보기");
+    moreProductBtn.id = "btn-more-product";
+    moreProductBtn.addEventListener("click", () => {
+      const event = new CustomEvent("loadMoreClicked");
+      document.dispatchEvent(event);
+    });
+
+    filterDiv.appendChild(moreProductBtn);
 
     const priceSortBtn = filterBtn("btn-md", "가격순 정렬");
     priceSortBtn.addEventListener("click", () => {
