@@ -13,7 +13,7 @@ class ShoesView {
   }
   async render() {
     const shoesContainer = document.createElement("div");
-    shoesContainer.setAttribute("id", "shoes_container");
+    shoesContainer.setAttribute("id", "product_container");
 
     const shoesDates = await fetchData("shoesData");
     shoesDates.map((shoesData, idx) => {
