@@ -10,9 +10,27 @@ class Footer {
 
     const filterDiv = document.createElement("div");
     filterDiv.setAttribute("class", "footer-filter");
+    
     filterDiv.appendChild(filterBtn("btn-md", "상품 더보기"));
-    filterDiv.appendChild(filterBtn("btn-md", "가격순 정렬"));
-    filterDiv.appendChild(filterBtn("btn-md", "다나가순 정렬"));
+
+    const priceSortBtn = filterBtn("btn-md", "가격순 정렬");
+    priceSortBtn.addEventListener("click", () => {
+      const event = new CustomEvent("filterClicked", {
+        detail: { filterType: "price" },
+      });
+      document.dispatchEvent(event);
+    });
+
+    filterDiv.appendChild(priceSortBtn);
+
+    const nameSortBtn = filterBtn("btn-md", "다나가순 정렬");
+    nameSortBtn.addEventListener("click", () => {
+      const event = new CustomEvent("filterClicked", {
+        detail: { filterType: "name" },
+      });
+      document.dispatchEvent(event);
+    });
+    filterDiv.appendChild(nameSortBtn);
 
     const searchDiv = document.createElement("div");
     searchDiv.setAttribute("class", "search");

@@ -42,7 +42,7 @@ class App {
     });
     this.$body.appendChild(main);
 
-    const footer = new Footer(this.$body);
+    const footer = new Footer(this.$body,main);
     footer.render();
   }
 }
