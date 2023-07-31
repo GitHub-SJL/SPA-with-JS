@@ -45,6 +45,7 @@ class Footer {
           filterValue: searchText, // Send the search text with the event
         },
       });
+      searchInput.value = "";
       document.dispatchEvent(event);
     });
 
