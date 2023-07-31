@@ -4,7 +4,8 @@
   "description": "- Vanilla JavaScript만을 사용하여 단일 페이지 애플리케이션(Single Page Application, SPA)를 개발하는 것을 목표로 합니다.\r - 프레임워크나 라이브러리를 사용하지 않고 순수하게 Vanilla JavaScript를 활용함으로써, 기본적인 프로그래밍 능력과 JavaScript의 깊이 있는 이해를 촉진하고자 합니다.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

@@ -19,7 +19,7 @@ app.use(
   express.static(path.resolve(__dirname, "frontend", "static"))
 );
 
-app.use("/frontend", express.static(path.resolve(__dirname, "frontend")));
+app.use("/", express.static(path.resolve(__dirname, "frontend")));
 
 app.use("/data", express.static(path.join(__dirname, "frontend","src","data")));
 
