@@ -17,17 +17,26 @@ class Header {
     header.setAttribute("id", "page_header");
     const title = new ContentTitle(this.$body, "SPA 쇼핑몰", "header-title");
     const headerTitle = title.render();
+
+    headerTitle.addEventListener("click", () => {
+      window.history.pushState("", "", "/");
+      const urlChange = new CustomEvent("urlchange", {
+        detail: { href: "/" },
+      });
+      document.dispatchEvent(urlChange);
+    });
+
     const nav = document.createElement("nav");
     const shoesLink = this.createLinkDiv("nav-link", "신발");
     const clothesLink = this.createLinkDiv("nav-link", "옷");
 
     // link 클릭시 url 변경
     shoesLink.addEventListener("click", () => {
-      window.history.pushState("", "", "/");
+      window.history.pushState("", "", "/shoes/");
       shoesLink.classList.add("active");
       clothesLink.classList.remove("active");
       const urlChange = new CustomEvent("urlchange", {
-        detail: { href: "/" },
+        detail: { href: "/shoes/" },
       });
       document.dispatchEvent(urlChange);
     });

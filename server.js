@@ -9,6 +9,9 @@ app.get("/", (req, res) => {
 app.get("/clothes/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
 });
+app.get("/shoes/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
+});
 
 // js 파일을 사용하기 위한 경로 설정
 app.use(

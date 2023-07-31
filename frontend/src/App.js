@@ -1,7 +1,9 @@
 import Header from "./components/Header.js";
+import MainPage from "./page/mainPage.js";
 import ShoesPage from "./page/ShoesPage.js";
 import ClothesPage from "./page/ClothesPage.js";
 import Footer from "./components/Footer.js";
+
 class App {
   constructor($body) {
     this.$body = $body;
@@ -15,6 +17,7 @@ class App {
     const main = document.createElement("main");
     main.setAttribute("id", "page_content");
 
+    const mainPage = new MainPage(main);
     const clothesPage = new ClothesPage(main);
     const shoesPage = new ShoesPage(main);
 
@@ -32,17 +35,19 @@ class App {
 
       switch (pathname) {
         case "/":
+          renderPage(mainPage);
+          break;
+        case "/shoes/":
           renderPage(shoesPage);
           break;
         case "/clothes/":
           renderPage(clothesPage);
           break;
-        default:
       }
     });
     this.$body.appendChild(main);
 
-    const footer = new Footer(this.$body,main);
+    const footer = new Footer(this.$body, main);
     footer.render();
   }
 }
