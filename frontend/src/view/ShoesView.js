@@ -13,11 +13,12 @@ class ShoesView {
     this.currentData = [];
     this.showedData = [];
     this.showDataCount = 5;
+    this.unfilteredData = [];
     this.loadShoesData();
 
     document.addEventListener("filterClicked", (event) => {
-      const filterType = event.detail.filterType;
-      this.sortShoesDataByPrice(filterType);
+      const filter = event.detail;
+      this.sortShoesDataByPrice(filter);
     });
 
     document.addEventListener("loadMoreClicked", () => {
@@ -49,16 +50,21 @@ class ShoesView {
 
     this.$page.innerHTML = "";
     this.render(this.showedData);
+
+    this.unfilteredData = [...this.showedData];
   }
 
-  async sortShoesDataByPrice(filterType) {
-    if (filterType === "price") {
-      this.showedData.sort((a, b) => b[filterType] - a[filterType]);
+  async sortShoesDataByPrice(filter) {
+    this.showedData = [...this.unfilteredData];
+    if (filter.filterType === "price") {
+      this.showedData.sort(
+        (a, b) => b[filter.filterType] - a[filter.filterType]
+      );
     }
-    if (filterType === "name") {
+    if (filter.filterType === "name") {
       this.showedData.sort((a, b) => {
-        a = a[filterType].toLowerCase();
-        b = b[filterType].toLowerCase();
+        a = a[filter.filterType].toLowerCase();
+        b = b[filter.filterType].toLowerCase();
         if (a > b) {
           return -1;
         }
@@ -68,6 +74,13 @@ class ShoesView {
 
         return 0;
       });
+    }
+
+    if (filter.filterType === "find") {
+      const regex = new RegExp(filter.filterValue, "i");
+      this.showedData = this.showedData.filter((item) =>
+        item.name.match(regex)
+      );
     }
 
     this.$page.innerHTML = "";

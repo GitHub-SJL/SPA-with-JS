@@ -41,9 +41,23 @@ class Footer {
 
     const searchDiv = document.createElement("div");
     searchDiv.setAttribute("class", "search");
-    searchDiv.appendChild(filterInput("input-search", "가격 검색"));
-    searchDiv.appendChild(filterBtn("btn-search", "검색"));
+    const searchInput = filterInput("input-search", "제품 검색");
+    searchDiv.appendChild(searchInput);
 
+    const searchBtn = filterBtn("btn-search", "검색");
+
+    searchBtn.addEventListener("click", () => {
+      const searchText = searchInput.value;
+      const event = new CustomEvent("filterClicked", {
+        detail: {
+          filterType: "find",
+          filterValue: searchText, // Send the search text with the event
+        },
+      });
+      document.dispatchEvent(event);
+    });
+
+    searchDiv.appendChild(searchBtn);
     filterDiv.appendChild(searchDiv);
     footerDiv.appendChild(filterDiv);
 
