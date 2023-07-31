@@ -11,15 +11,6 @@ class Footer {
     const filterDiv = document.createElement("div");
     filterDiv.setAttribute("class", "footer-filter");
 
-    const moreProductBtn = filterBtn("btn-md", "상품 더보기");
-    moreProductBtn.id = "btn-more-product";
-    moreProductBtn.addEventListener("click", () => {
-      const event = new CustomEvent("loadMoreClicked");
-      document.dispatchEvent(event);
-    });
-
-    filterDiv.appendChild(moreProductBtn);
-
     const priceSortBtn = filterBtn("btn-md", "가격순 정렬");
     priceSortBtn.addEventListener("click", () => {
       const event = new CustomEvent("filterClicked", {
@@ -57,7 +48,28 @@ class Footer {
       document.dispatchEvent(event);
     });
 
+    const moreProductBtn = filterBtn("btn-md", "상품 더보기");
+    moreProductBtn.id = "btn-more-product";
+    moreProductBtn.addEventListener("click", () => {
+      const event = new CustomEvent("loadMoreClicked");
+      document.dispatchEvent(event);
+    });
+
+    filterDiv.appendChild(moreProductBtn);
+
+    const resetBtn = filterBtn("btn-reset", "RESET");
+
+    resetBtn.addEventListener("click", () => {
+      const event = new CustomEvent("filterClicked", {
+        detail: {
+          filterType: "reset",
+        },
+      });
+      document.dispatchEvent(event);
+    });
+
     searchDiv.appendChild(searchBtn);
+    filterDiv.appendChild(resetBtn);
     filterDiv.appendChild(searchDiv);
     footerDiv.appendChild(filterDiv);
 

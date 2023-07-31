@@ -1,6 +1,5 @@
 import ContentTitle from "../components/ContentTitle.js";
-import ShoesView from "../view/ShoesView.js";
-
+import ProductView from "../view/ProductView.js";
 class ShoesPage {
   constructor($main) {
     this.$main = $main;
@@ -13,7 +12,7 @@ class ShoesPage {
     const title = new ContentTitle(pageDiv, "SPA 신발", "content_title");
     title.render();
 
-    const shoesView = new ShoesView(pageDiv);
+    const shoesView = new ProductView(pageDiv, { data: "shoesData" });
     shoesView.render();
   }
 }

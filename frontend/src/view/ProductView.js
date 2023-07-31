@@ -7,57 +7,65 @@ import {
 
 import { fetchData } from "../components/fetchProduct.js";
 
-class ClothesView {
-  constructor($page) {
+class ProductView {
+  constructor($page, product) {
+    this.productTest = product.data;
     this.$page = $page;
     this.currentData = [];
     this.showedData = [];
+    this.unfilteredData = [];
     this.showDataCount = 5;
     this.loadShoesData();
 
     document.addEventListener("filterClicked", (event) => {
-      const filterType = event.detail.filterType;
-      this.sortClothesDataByPrice(filterType);
+      const filter = event.detail;
+      this.sortShoesDataByPrice(filter);
     });
+
     document.addEventListener("loadMoreClicked", () => {
       this.showMoreProducts();
     });
   }
+
   async loadShoesData() {
-    this.currentData = await fetchData("clothesData");
+    this.currentData = await fetchData(`${this.productTest}`);
     this.showMoreProducts();
   }
 
   showMoreProducts() {
     const additionalData = this.currentData.slice(
-      this.showedData.length,
-      this.showedData.length + this.showDataCount
+      this.unfilteredData.length,
+      this.unfilteredData.length + this.showDataCount
     );
     const moreProductBtn = document.querySelector("#btn-more-product");
+
     if (additionalData.length === 0) {
       const endOfProductsMessage = document.createElement("p");
       endOfProductsMessage.textContent = "더 이상 불러올 상품이 없습니다.";
       this.$page.appendChild(endOfProductsMessage);
       moreProductBtn.setAttribute("disabled", "");
-
       return;
     }
     moreProductBtn.removeAttribute("disabled");
-
-    this.showedData = this.showedData.concat(additionalData);
+    this.showedData = this.unfilteredData.concat(additionalData);
 
     this.$page.innerHTML = "";
     this.render(this.showedData);
+
+    this.unfilteredData = [...this.showedData];
   }
 
-  async sortClothesDataByPrice(filterType) {
-    if (filterType === "price") {
-      this.showedData.sort((a, b) => b[filterType] - a[filterType]);
+  async sortShoesDataByPrice(filter) {
+    this.showedData = [...this.unfilteredData];
+    if (filter.filterType === "price") {
+      this.showedData.sort(
+        (a, b) => b[filter.filterType] - a[filter.filterType]
+      );
     }
-    if (filterType === "name") {
+    if (filter.filterType === "name") {
       this.showedData.sort((a, b) => {
-        a = a[filterType].toLowerCase();
-        b = b[filterType].toLowerCase();
+        a = a[filter.filterType].toLowerCase();
+        b = b[filter.filterType].toLowerCase();
         if (a > b) {
           return -1;
         }
@@ -67,6 +75,18 @@ class ClothesView {
 
         return 0;
       });
+    }
+
+    if (filter.filterType === "find") {
+      const regex = new RegExp(filter.filterValue, "i");
+      this.showedData = this.showedData.filter((item) =>
+        item.name.match(regex)
+      );
+    }
+
+    if (filter.filterType === "reset") {
+      this.showedData = [];
+      this.unfilteredData = [];
     }
 
     this.$page.innerHTML = "";
@@ -92,4 +112,4 @@ class ClothesView {
   }
 }
 
-export default ClothesView;
+export default ProductView;

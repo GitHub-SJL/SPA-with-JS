@@ -96,6 +96,12 @@ footer {
   font-size: 16px;
   margin: 4px 2px;
 }
+.btn-reset {
+  padding: 15px 32px;
+  font-size: 16px;
+  margin: 4px 2px;
+  background-color: #ff6347;
+}
 
 .search {
   display: flex;
