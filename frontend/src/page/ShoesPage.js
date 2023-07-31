@@ -7,13 +7,14 @@ class ShoesPage {
   async render() {
     const pageDiv = document.createElement("div");
     pageDiv.setAttribute("class", "product_page");
-    this.$main.appendChild(pageDiv);
 
-    const title = new ContentTitle(pageDiv, "SPA 신발", "content_title");
+    const title = new ContentTitle(this.$main, "SPA 신발", "content_title");
     title.render();
 
     const shoesView = new ProductView(pageDiv, { data: "shoesData" });
     shoesView.render();
+
+    this.$main.appendChild(pageDiv);
   }
 }
 

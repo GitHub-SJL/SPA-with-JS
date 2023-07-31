@@ -38,6 +38,7 @@ footer {
 .content_title {
   text-align: center;
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 #product_container {
@@ -100,7 +101,7 @@ footer {
   padding: 15px 32px;
   font-size: 16px;
   margin: 4px 2px;
-  background-color: #ff6347;
+  background-color:#FF6347;
 }
 
 .search {
