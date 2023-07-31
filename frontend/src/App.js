@@ -1,5 +1,5 @@
 import Header from "./components/Header.js";
-import MainPage from "./page/mainPage.js";
+import MainPage from "./page/MainPage.js";
 import ShoesPage from "./page/ShoesPage.js";
 import ClothesPage from "./page/ClothesPage.js";
 import Footer from "./components/Footer.js";
