@@ -9,7 +9,7 @@ class ClothesPage {
     pageDiv.setAttribute("class", "product_page");
    
 
-    const title = new ContentTitle(this.$main, "SPA 옷d", "content_title");
+    const title = new ContentTitle(this.$main, "SPA 옷", "content_title");
     title.render();
 
 

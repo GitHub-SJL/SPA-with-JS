@@ -12,12 +12,17 @@ class Header {
   }
 
   render() {
-    // DOM 노드 생성
     const header = document.createElement("header");
     header.setAttribute("id", "page_header");
+    
     const title = new ContentTitle(this.$body, "SPA 쇼핑몰", "header-title");
     const headerTitle = title.render();
 
+    const nav = document.createElement("nav");
+    const shoesLink = this.createLinkDiv("nav-link", "신발");
+    const clothesLink = this.createLinkDiv("nav-link", "옷");
+
+    // 다른 페이지로 이동할 수 있도록 이벤트 리스너를 추가
     headerTitle.addEventListener("click", () => {
       window.history.pushState("", "", "/");
       const urlChange = new CustomEvent("urlchange", {
@@ -26,11 +31,6 @@ class Header {
       document.dispatchEvent(urlChange);
     });
 
-    const nav = document.createElement("nav");
-    const shoesLink = this.createLinkDiv("nav-link", "신발");
-    const clothesLink = this.createLinkDiv("nav-link", "옷");
-
-    // link 클릭시 url 변경
     shoesLink.addEventListener("click", () => {
       window.history.pushState("", "", "/shoes/");
       shoesLink.classList.add("active");
@@ -51,10 +51,9 @@ class Header {
       document.dispatchEvent(urlChange);
     });
 
+    // DOM 트리에 노드 연결
     nav.appendChild(shoesLink);
     nav.appendChild(clothesLink);
-
-    // DOM 트리에 노드 연결
     header.appendChild(headerTitle);
     header.appendChild(nav);
     this.$body.appendChild(header);

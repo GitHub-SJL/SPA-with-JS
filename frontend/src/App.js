@@ -21,7 +21,6 @@ class App {
     const clothesPage = new ClothesPage(main);
     const shoesPage = new ShoesPage(main);
 
-    // main을 렌더링하는 함수
     const renderPage = (page) => {
       while (main.firstChild) {
         main.removeChild(main.firstChild);
@@ -29,7 +28,6 @@ class App {
       page.render();
     };
 
-    // url에 따라 main 렌더링
     document.addEventListener("urlchange", (e) => {
       let pathname = e.detail.href;
 
