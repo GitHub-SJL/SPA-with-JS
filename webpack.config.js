@@ -35,7 +35,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./frontend/index.html", // 원본 HTML 파일 경로
-      inject: true,
     }),
     new MiniCssExtractPlugin({
       filename: "styles.css",
