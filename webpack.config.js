@@ -7,7 +7,7 @@ module.exports = {
   // 출력 설정
   output: {
     filename: "bundle.js", // 출력 파일명
-    path: path.resolve(__dirname, "dist"), // 출력 경로
+    path: path.resolve(__dirname, "public"), // 출력 경로
   },
 
   // 모듈 규칙 (예: Babel 사용 설정)
