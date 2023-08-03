@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/bundle.js", "destination": "/bundle.js" },
+    { "source": "/shoes/bundle.js", "destination": "/bundle.js" },
+    { "source": "/clothes/bundle.js", "destination": "/bundle.js" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
