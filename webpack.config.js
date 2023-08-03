@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 추가
 const path = require("path");
 
 module.exports = {
@@ -23,6 +25,20 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/, // .css 확장자를 가진 파일에 적용
+        use: [MiniCssExtractPlugin.loader, "css-loader"], // MiniCssExtractPlugin 사용
+      },
     ],
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./frontend/index.html", // 원본 HTML 파일 경로
+      // 추가적인 옵션들이 여기에 들어갈 수 있습니다.
+    }),
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+    }),
+  ],
 };
