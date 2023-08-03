@@ -1,3 +1,6 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
-}
+    "rewrites": [
+      { "source": "/frontend/public/bundle.js", "destination": "/frontend/public/bundle.js" },
+      { "source": "/(.*)", "destination": "/" }
+    ]
+  }
